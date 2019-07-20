@@ -23,3 +23,7 @@ EXECUTOR_MEMORY="3G"
 #Add spark2 parameters
 [spark2_param]
 EXECUTOR_MEMORY="5G"
+
+#Add Default paramaters
+[default_param]
+EXECUTOR_MEMORY="7G"

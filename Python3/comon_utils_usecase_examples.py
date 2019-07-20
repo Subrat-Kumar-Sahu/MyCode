@@ -10,6 +10,7 @@ def main():
     cu.set_std_logger(logging.DEBUG, cu.get_std_apps_env('/apps/conf', 'common_env_var.txt', 'config_path', 'LOG_DIR').strip('"'), __file__)
 
     logging.info('Started')
+    logging.info('Log File: ' + cu.LOG_FILE)
 
     logging.debug('This is a debug message')
     logging.info('This is an info message')
@@ -30,11 +31,10 @@ def check_logging():
     logging.critical('This is a critical message')
 
 def check_env_setting():
-    STD_APPS_ENV_OBJ = cu.SetStdAppsEnv('/apps/conf', 'common_env_var.txt')
-    logging.info('IP_DIR: ' + STD_APPS_ENV_OBJ.IP_DIR)
+    ENV = cu.SetStdAppsEnv('/apps/conf', 'common_env_var.txt')
+    logging.info('IP_DIR: ' + ENV.IP_DIR)
+    logging.info('EXECUTOR_MEMORY: ' + ENV.EXECUTOR_MEMORY)
     
 
 if __name__ == '__main__':
     main()
-
-    logging.info('Log File: ' + cu.LOGFILE)
