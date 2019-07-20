@@ -1,16 +1,22 @@
 #!/home/cloudera/anaconda3/bin/python
 
+import os
 import sys
 import logging
+import datetime
 
 sys.path.append('/apps/comm_fn_pkg')
 import comon_utils as cu
 
 def main():
-    cu.set_std_logger(logging.DEBUG, cu.get_std_apps_env('/apps/conf', 'common_env_var.txt', 'config_path', 'LOG_DIR').strip('"'), __file__)
+    ENV = cu.SetStdAppsEnv('/apps/conf', 'common_env_var.txt')
+
+    LOG_FILE = ENV.LOG_DIR + os.path.splitext(os.path.basename(__file__))[0] + '_' + datetime.datetime.now().strftime("%Y%m%d%H%M%S") + '.log'
+
+    cu.set_std_logger(logging.DEBUG, LOG_FILE)
 
     logging.info('Started')
-    logging.info('Log File: ' + cu.LOG_FILE)
+    logging.info('Log File: ' + LOG_FILE)
 
     logging.debug('This is a debug message')
     logging.info('This is an info message')
