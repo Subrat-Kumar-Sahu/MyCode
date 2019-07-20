@@ -1,0 +1,25 @@
+#Add the common application path
+[config_path]
+HQL_DIR="/apps/hql"
+LOG_DIR="/apps/log"
+SQL_DIR="/apps/sql"
+TMP_DIR="/apps/tmp"
+CONF_DIR="/apps/conf"
+BKP_DIR="/apps/backup"
+IP_DIR="/apps/ip_files"
+OP_DIR="/apps/op_files"
+TOOLS_DIR="/apps/tools"
+SETUP_DIR="/appps/setup"
+SCRIPT_DIR="/apps/script"
+ARCHIVE_DIR="/apps/archive"
+EXP_IMP_DIR="/apps/dp_exp_imp"
+HDFS_DATA_DIR="/apps/hdfs_data"
+COMMON_FN_PKG="/apps/comm_fn_pkg"
+
+#Add spark1 parameters
+[spark1_param]
+EXECUTOR_MEMORY="3G"
+
+#Add spark2 parameters
+[spark2_param]
+EXECUTOR_MEMORY="5G"
