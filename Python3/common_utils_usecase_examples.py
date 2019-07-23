@@ -43,6 +43,11 @@ def check_env_setting():
     logging.info('EXECUTOR_MEMORY: ' + ENV.EXECUTOR_MEMORY)
     logging.info('EXECUTOR_MEMORY: ' + cu.get_std_apps_env('/apps/conf/common_env_var.txt', 'spark1_param', 'EXECUTOR_MEMORY').strip('"'))
     
+    ENV_ITEMS = ENV.__dict__
+
+    for i in sorted(ENV_ITEMS):
+        logging.info('Config Parameter {0} = {1}'.format(i, ENV_ITEMS[i]))
+    
 
 if __name__ == '__main__':
     main()
