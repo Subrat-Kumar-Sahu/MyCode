@@ -27,15 +27,16 @@ def search_col(trg_db, trg_table, search_str):
     REC_COUNT = spark.sql(sql_stmt).collect()[0][0]
 
     logging.info("Sql Query: {0}".format(sql_stmt))
-    logging.info("Search string '{0}' found in table {1}.{2}".format(search_str, trg_db, trg_table))
 
     print(LN_T)
 
     if REC_COUNT > 0:
         logging.info("Search string '{0}' found in table {1}.{2}".format(search_str, trg_db, trg_table))
+
         for i in col_list:
             sql_stmt = "select count(*) from {0}.{1} where {2} = '{3}'".format(trg_db, trg_table, i, search_str)
             REC_KOUNT = spark.sql(sql_stmt).collect()[0][0]
+
             if REC_KOUNT > 0:
                 logging.info("{0}:{1}:{2}:{3}".format(trg_db, trg_table, i, search_str))
     else:
